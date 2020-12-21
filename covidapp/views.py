@@ -22,7 +22,6 @@ def hello_world_view(request):
     my_list.sort()
     if request.method == 'POST':
         selected_country = request.POST['selected_country']
-        print(selected_country)
 
         for x in range(0, results):
             if selected_country == response['response'][x]['country']:
@@ -32,7 +31,6 @@ def hello_world_view(request):
                 recovered = response['response'][x]['cases']['recovered']
                 total = response['response'][x]['cases']['total']
                 deaths = int(total) - int(active) - int(recovered)
-                print(response['response'][x]['cases']['new'])
                 context = {
                     'selected_country': selected_country,
                     'my_list': my_list,
